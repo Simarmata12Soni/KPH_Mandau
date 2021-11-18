@@ -124,7 +124,7 @@ var updateSidebar = function(marker) {
           </tr>\
           <tr>\
             <th scope="row">Harga Adopsi</th>\
-            <td> Rp '+d.harga_adopsi+'</td>\
+            <td> '+d.harga_adopsi+'</td>\
           </tr>\
           <tr>\
             <th scope="row">Serapan Karbon</th>\
@@ -156,16 +156,16 @@ var updateSidebar = function(marker) {
 
         if (d[idx]) {
 
-          // var source = "<em class='normal'>" + d[idx + 'Source'] + '</em>';
+          var source = "<em class='normal'>" + d[idx + 'Source'] + '</em>';
 
-          // if (source && d[idx + 'SourceLink']) {
-          //   source = "<a href='" + d[idx + 'SourceLink'] + "' target='_blank'>" + source + "</a>";
-          // }
+          if (source && d[idx + 'SourceLink']) {
+            source = "<a href='" + d[idx + 'SourceLink'] + "' target='_blank'>" + source + "</a>";
+          }
 
           var a = $('<a/>', {
             href: d[idx],
             'data-lightbox': 'gallery',
-            //'data-title': ( d[idx + 'Caption'] + ' ' + source )  || '',
+            'data-title': ( d[idx + 'Caption'] + ' ' + source )  || '',
             'data-alt': d.kode_pohon,
             'class': i === 1 ? '' : 'dn'
           });
@@ -419,10 +419,10 @@ function onEachFeature(feature, layer) {
   map.getPane('pane_PohonAdopsiMinastahura_4').style.zIndex = 1;
   map.getPane('pane_PohonAdopsiMinastahura_4').style['mix-blend-mode'] = 'normal';
 
-  layer_BatasKawasan = L.geoJson(json_BatasKawasanTahuraSultanSyarifQasim_3,{
+  layer_BatasKawasan = L.geoJson(bataskawasanmandau,{
     attribution: '',
     interactive: true,
-    dataVar: 'json_BatasKawasanTahuraSultanSyarifQasim_3',
+    dataVar: 'bataskawasanmandau',
     layerName: 'layer_BatasKawasanTahuraSultanSyarifQasim_3',
     style: style_bataskawasan,
     onEachFeature: onEachFeature,
@@ -473,7 +473,7 @@ info.addTo(map);
   // Add data & GitHub links
   map.attributionControl.setPrefix('Download <a href="'
     + dataLocation + '" target="_blank">data</a> or \
-    view <a href="https://github.com/Simarmata12Soni/webmap_adopsipohon1_" target="_blank">code on\
+    view <a href="https://github.com/mariaaadeliaw/KPH_Mandau" target="_blank">code on\
     GitHub</a> | created with <a href="http://leafletjs.com" title="A JS library\
     for interactive maps">Leaflet</a>');
 
